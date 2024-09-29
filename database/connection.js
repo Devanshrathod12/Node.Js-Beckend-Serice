@@ -11,3 +11,6 @@ const schema = new mongoose.Schema({
 
 const users =  mongoose.model("users",schema)
 module.exports=users
+
+// url db compass in local machine mongodb://127.0.0.1:27017/ 
+// {BackendWithSager}  actual db name
