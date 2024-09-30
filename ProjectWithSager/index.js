@@ -1,11 +1,13 @@
 const express = require("express")
 const app = express()
-const user = require("./db")
+const Routes = require("./router")
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.set("view engine","ejs")
 const port = 3000
 
-app.get("/",(req,res)=>{
-    res.send("first routes")
-})
+app.use(Routes)
 
 app.listen(port,()=>{
     console.log(`port running on ${port}`);
