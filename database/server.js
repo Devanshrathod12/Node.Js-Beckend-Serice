@@ -57,6 +57,16 @@ app.delete("/delete/:id",async(req,res)=>{
     }
 })
 
+app.post("/login",async(req,res)=>{
+    try {
+        const useremail = req.body.email
+        const getemail = await users.findOne({email:useremail})
+        res.send(getemail)
+    } catch (error) {
+        res.status(404).send(error)
+    }
+})
+
 app.listen(3000,()=>{
     console.log("server is running port 3000")
 })

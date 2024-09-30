@@ -6,7 +6,26 @@ mongoose.connect("mongodb://127.0.0.1:27017/BackendWithSager").then(()=>{
 })
 
 const schema = new mongoose.Schema({
-    name:String
+    name:{
+        type:String,
+        required:true
+    },
+    email:{
+        type:String,
+        required:true
+    },
+    phone:{
+        type:Number,
+        unique:true
+    },
+    password:{
+        type:String,
+        required:true
+    },
+    confPassword:{
+        type:String,
+        required:true
+    }
 })
 
 const users =  mongoose.model("users",schema)
