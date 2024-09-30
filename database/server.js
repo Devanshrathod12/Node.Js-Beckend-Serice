@@ -37,6 +37,26 @@ app.get("/user/:id",async (req,res)=>{
     }
 })
 
+app.patch("/update/:id",async(req,res)=>{
+    try {
+        const id = req.params.id
+        const updatedata = await users.findByIdAndUpdate({_id:id},req.body,{new:true})
+        res.send(updatedata)
+    } catch (error) {
+        res.status(500).send(error)
+    }
+})
+
+app.delete("/delete/:id",async(req,res)=>{
+    try {
+        const id = req.params.id;
+        const deletedata = await users.findByIdAndDelete({_id:id})
+        res.send(deletedata)
+    } catch (error) {
+        res.status(500).send(error)
+    }
+})
+
 app.listen(3000,()=>{
     console.log("server is running port 3000")
 })
