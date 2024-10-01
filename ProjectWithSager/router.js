@@ -2,13 +2,19 @@ const express = require("express")
 const Routes = express.Router()
 const user = require("./db")
 const bcrypt = require("bcryptjs")
-const cookieparser = require("cookie-parser")
+const cookieParser = require("cookie-parser")
+
+const auth = require("./authtctn")
 
 Routes.get("/",(req,res)=>{
     res.render("index")
 })
 Routes.get("/loginin",(req,res)=>{
-    res.render("login")
+     res.render("login")
+    
+})
+Routes.get("/auth",auth,(req,res)=>{
+    res.render("auth")
 })
 
 Routes.post("/register",async(req,res)=>{
