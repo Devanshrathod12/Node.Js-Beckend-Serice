@@ -1,10 +1,12 @@
 <%- include("../partial/meta") %>
 <body>
+  <%- include("../partial/navbar") %>
     <form class="bg-grey-100 ml-[25rem] mt-[6rem] w-[16rem]" action="/register" method="post" >
-       <div> <input type="text" name="name" class="bg-green-800 text-white font-extrabold mt-3" autocomplete="off" required> </div>
-       <div> <input type="text" name="email" class="bg-green-800 text-white font-extrabold mt-3"autocomplete="off" required > </div>
-       <div> <input type="text" name="phone" class="bg-green-800 text-white font-extrabold mt-3"autocomplete="off" required> </div>
-        <div> <input type="text" name="password" class="bg-green-800 text-white font-extrabold mt-3"autocomplete="off" required> </div>
+       <div> <input type="text" name="name" class="bg-green-800 text-white font-extrabold mt-3" autocomplete="off" required placeholder="enter name"> </div>
+       <div> <input type="text" name="email" class="bg-green-800 text-white font-extrabold mt-3"autocomplete="off" required placeholder="enter email" > </div>
+       <div> <input type="text" name="phone" class="bg-green-800 text-white font-extrabold mt-3"autocomplete="off" required placeholder="enter phone"> </div>
+        <div> <input type="text" name="password" class="bg-green-800 text-white font-extrabold mt-3"autocomplete="off" required placeholder="enter password"> </div>
+        <div> <input type="text" name="confpassword" class="bg-green-800 text-white font-extrabold mt-3"autocomplete="off" required placeholder="enter conform password"> </div>
           <button type="submit" class="bg-red-800 mt-3">submit</button>
     </form>
 </body>

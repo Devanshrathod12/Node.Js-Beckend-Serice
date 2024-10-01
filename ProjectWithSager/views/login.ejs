@@ -1,7 +1,8 @@
 <%- include("../partial/meta") %>
+<%- include("../partial/navbar") %>
 
 <form class="bg-grey-100 ml-[25rem] mt-[6rem] w-[16rem]" action="/login" method="post" >
-    <div> <input type="text" name="email" class="bg-green-800 text-white font-extrabold mt-3" autocomplete="off" required> </div>
-    <div> <input type="text" name="password" class="bg-green-800 text-white font-extrabold mt-3"autocomplete="off" required > </div>
+    <div> <input type="text" name="email" class="bg-green-800 text-white font-extrabold mt-3" autocomplete="off" required placeholder="enter email"> </div>
+    <div> <input type="text" name="password" class="bg-green-800 text-white font-extrabold mt-3"autocomplete="off" required placeholder="enter password" > </div>
           <button type="submit" class="bg-red-800 mt-3">login</button>
  </form>
