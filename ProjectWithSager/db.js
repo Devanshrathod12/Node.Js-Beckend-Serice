@@ -56,7 +56,10 @@ const schema = new mongoose.Schema({
 
 //**   this currunt context ko refer k =rta hai esme cunt contxt schema h */
 schema.pre("save",async function(next){
+  if (this.isModified("password")) {
     this.password = await bcrypt.hash(this.password,10)
+  }
+    // this.password = await bcrypt.hash(this.password,10)
     next()
 })
 

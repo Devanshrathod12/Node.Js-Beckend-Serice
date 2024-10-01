@@ -2,6 +2,7 @@ const express = require("express")
 const Routes = express.Router()
 const user = require("./db")
 const bcrypt = require("bcryptjs")
+const cookieparser = require("cookie-parser")
 
 Routes.get("/",(req,res)=>{
     res.render("index")
