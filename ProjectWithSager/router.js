@@ -5,18 +5,21 @@ const bcrypt = require("bcryptjs")
 const cookieParser = require("cookie-parser")
 
 const auth = require("./authtctn")
-
+// this is mhome pahe route
 Routes.get("/",(req,res)=>{
     res.render("index")
 })
+// this is login page using namvbar
 Routes.get("/loginin",(req,res)=>{
      res.render("login")
     
 })
+// this is authorization page
 Routes.get("/auth",auth,(req,res)=>{
     res.render("auth")
 })
 
+// this is user registation page
 Routes.post("/register",async(req,res)=>{
     try {
         const data = new user(req.body)
@@ -39,7 +42,7 @@ Routes.post("/register",async(req,res)=>{
     }
     
 })
-
+// this is user login page 
 Routes.post("/login",async(req,res)=>{  // is match chacck krega compare(passwordusers jo user derha hai input me, database mea vaabal data chackrega databasedata.password) chacck krega
     try {
         const passwordusers = req.body.password;
@@ -59,6 +62,7 @@ Routes.post("/login",async(req,res)=>{  // is match chacck krega compare(passwor
     }
 })
 
+// logut using navbar 
 Routes.get("/logout",auth,async(req,res)=>{
     try {
         
@@ -72,5 +76,5 @@ Routes.get("/logout",auth,async(req,res)=>{
     }
 })
 
-
+// expoert to imprt data in express 
 module.exports=Routes
