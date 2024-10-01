@@ -1,12 +1,14 @@
 const mongoose = require("mongoose")//nodejsprojectSager
 const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
-mongoose.connect("mongodb://127.0.0.1:27017/nodejsprojectSager").then(()=>{
-    console.log("db connected succsesfull");
+require("dotenv").config()
+
+mongoose.connect(process.env.DB).then(()=>{
+  console.log("connection succesfull");
 }).catch((e)=>{
-    console.log(e);
-    
+  console.log(e);
 })
+
 
 // incrept hello ko nknou language me convert krta h loki => 12ergdfgaa
 // decript ye incrept languAGE LIKE => 12ergdfgaa convert => hello 
@@ -57,7 +59,7 @@ const schema = new mongoose.Schema({
 
 schema.methods.genrateToken= async function(){
   try {
-    const tokenuser = jwt.sign({_id:this._id.toString()},"qoiwnerscmwmlsvdblkhrtijfkbnrhtirhbrmbjkkbmfkghjoibjpeohryjbrwjgbmbkvghbo")
+    const tokenuser = jwt.sign({_id:this._id.toString()},process.env.KEY)
     this.tokens = this.tokens.concat({token:tokenuser})
     await this.save();
     return tokenuser
