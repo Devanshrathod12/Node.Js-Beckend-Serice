@@ -59,4 +59,18 @@ Routes.post("/login",async(req,res)=>{  // is match chacck krega compare(passwor
     }
 })
 
+Routes.get("/logout",auth,async(req,res)=>{
+    try {
+        
+    req.user.tokens=[];
+    res.clearCookie("jwt");
+    await req.user.save()
+    res.render("login");
+
+    } catch (error) {
+        res.status(404).send(error)
+    }
+})
+
+
 module.exports=Routes
