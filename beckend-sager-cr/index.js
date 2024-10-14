@@ -1,7 +1,9 @@
 const express = require("express")
 const app = express();
+const cors = require("cors")
 const User = require("./db")
 app.use(express.json())
+app.use(cors());
 
 // home page routes
 app.get("/",(req,res)=>{
